@@ -1,16 +1,16 @@
-const PLUS_NUM = 'PLUS_NUM';
-const MINUS_NUM = 'MINUS_NUM';
+const PLUS = 'PLUS';
+const MINUS = 'MINUS';
 
-export const plusNum = (payload) => {
+export const plus = (payload) => {
 	return {
-		type: PLUS_NUM,
+		type: PLUS,
 		payload: payload,
 	};
 };
 
-export const minusNum = (payload) => {
+export const minus = (payload) => {
 	return {
-		type: MINUS_NUM,
+		type: MINUS,
 		payload: payload,
 	};
 };
@@ -23,13 +23,13 @@ const initialState = {
 // 리듀서
 const calculator = (state = initialState, action) => {
 	switch (action.type) {
-		case PLUS_NUM:
+		case PLUS:
 			return {
 				...state,
 				number: state.number + action.payload,
 			};
 
-		case MINUS_NUM:
+		case MINUS:
 			return {
 				...state,
 				number: state.number - action.payload,

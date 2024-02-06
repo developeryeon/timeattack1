@@ -1,28 +1,26 @@
 import { useDispatch, useSelector } from 'react-redux';
-import './App.css';
 import { useState } from 'react';
-import { plusNum, minusNum } from './redux/modules/calculator';
+import { plus } from './redux/modules/calculator';
+import { minus } from './redux/modules/calculator';
 
 function App() {
 	const dispatch = useDispatch();
 
-	const data = useSelector((state) => state.calculator.number);
+	const number = useSelector((state) => state.calculator.number);
 
-	const [number, setNumber] = useState(0);
+	const [num, setNum] = useState(0);
 
 	const onNumberChangeHandler = (e) => {
 		const { value } = e.target;
-		setNumber(+value);
+		setNum(+value);
 	};
 
 	const onPlusNumberHandler = () => {
-		dispatch(plusNum(number));
-		setNumber(0);
+		dispatch(plus(num));
 	};
 
 	const onMinusNumberHandler = () => {
-		dispatch(minusNum(number));
-		setNumber(0);
+		dispatch(minus(num));
 	};
 
 	return (
@@ -35,7 +33,7 @@ function App() {
 			</div>
 			<hr />
 			<div>
-				<h3>결과:{data}</h3>
+				<h3>결과:{number}</h3>
 				<p>0</p>
 			</div>
 		</div>
